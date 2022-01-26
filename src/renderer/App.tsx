@@ -2,6 +2,18 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.css';
 
+declare global {
+  interface Window {
+    electron: {
+      store: {
+        get: (key: string) => any;
+        set: (key: string, val: any) => void;
+        // any other methods you've defined...
+      };
+    };
+  }
+}
+
 const Hello = () => {
   return (
     <div>
